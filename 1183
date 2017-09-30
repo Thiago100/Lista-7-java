@@ -1,0 +1,22 @@
+import java.util.*;
+import java.io.*;
+public class Main{	
+	public static void main (String[] args){
+		PrintStream sa = System.out;
+		Scanner sc=new Scanner(System.in);
+		String a = sc.next();
+		double s=0,y;
+		int x=1;
+		for(int i=0;i<12;i++){
+			for(int j=0;j<12;j++){
+				y = sc.nextDouble();
+				if(j>=x){
+					s+=y;
+				}
+			}
+			x++;
+		}
+		if(a.equals("M")) sa.printf("%.1f\n",s/66.0);
+		else sa.printf("%.1f\n",s);
+	}
+}
