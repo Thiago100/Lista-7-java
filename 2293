@@ -1,0 +1,32 @@
+import java.util.*;
+import java.io.*;
+public class Main{	
+	public static void main (String[] args){
+		PrintStream sa = System.out;
+		Scanner sc=new Scanner(System.in);
+		int l = sc.nextInt() , c = sc.nextInt();
+		int m[][] = new int[l][c];
+		for(int i=0;i<l;i++){
+			for(int j=0;j<c;j++){
+				m[i][j] = sc.nextInt();
+			}
+		}
+		int maior = 0,soma = 0;
+		for(int i=0;i<l;i++){
+			for(int j=0;j<c;j++){
+				soma+=m[i][j];
+			}
+			if(soma>maior) maior = soma;
+			soma =0;
+		}
+		soma = 0;
+		for(int j=0;j<c;j++){
+			for(int i=0;i<l;i++){
+				soma+=m[i][j];
+			}
+			if(soma>maior) maior = soma;
+			soma = 0;
+		}
+		sa.println(maior);
+	}
+}
