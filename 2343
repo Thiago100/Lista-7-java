@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+public class Main{
+	public static int matriz[][]=new int[505][505];
+	public static void main(String args[]) { 
+		 Scanner sc=new Scanner(System.in);
+		  
+		  int n=sc.nextInt();
+		  for(int i=0;i<n;i++){
+		  	matriz[sc.nextInt()][sc.nextInt()]+=1;
+		  }
+		  boolean verd=true;
+		  for(int i=0;i<505&&verd;i++){
+		  	for(int j=0;j<505;j++){
+		  		if(matriz[i][j]>=2){
+		  			verd=false;
+		  			break;
+		  		}
+		  	}
+		  }
+		  if(verd)System.out.println("0");
+		  else System.out.println("1");
+	}
+}
