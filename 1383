@@ -1,0 +1,134 @@
+import java.util.Scanner;
+   
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        int sudoku[][] = new int[9][9],trocouC,trocouL,l,c,seq[] = new int[10],i,parar,j,quant,t;
+		quant = scanner.nextInt();
+		//percorrendo a quantidade de caso de testes
+		for(t=1;t<=quant;t++)
+		{
+			parar=0;
+			trocouC=0;
+			trocouL=0;
+				//leitura da matriz
+				for(l=0;l<9;l++)
+				{
+					for(c=0;c<9;c++)
+					{
+						sudoku[l][c] = scanner.nextInt();
+					}
+	  
+				}
+				//percorre todas as submatrizes
+				for(i=0;i<9;i++)
+				{
+					//zerando o vetor
+					for(j=0;j<9;j++)
+					{
+						seq[j]=0;
+					}
+					for(l=3*trocouL;l<=3*trocouL+2;l++)
+					{
+	  
+	  
+						for(c=3*trocouC;c<=3*trocouC+2;c++)
+						{
+	  
+							seq[sudoku[l][c]-1]++;
+						}
+					}
+					//verificando se todas as casas do vetor é diferente de 0
+					for(j=0;j<9;j++)
+					{
+						if(seq[j]==0)
+						{
+							parar=1;
+							break;
+						}
+					}
+					//incrementando caso esteja tudo certo
+					if(parar==0)
+					{
+						if(trocouC==2)
+						{
+							trocouC=0;
+							trocouL++;
+						}
+						else
+						{
+							trocouC++;
+						}
+					}
+					//caso há elementos repetidos, para o laço de repetição
+					else
+					{
+						break;
+					}
+				}
+				//caso esteja tudo certo, percorrer todas as linhas e todas colunas
+				if(parar==0)
+				{
+					//percorrendo todas as linhas
+					for(l=0;l<9;l++)
+					{
+						//zerando o vetor auxiliar
+						for(j=0;j<9;j++)
+						{
+							seq[j]=0;
+						}
+						for(c=0;c<9;c++)
+						{
+							seq[sudoku[l][c]-1]++;
+						}
+						 for(j=0;j<9;j++)
+						 {
+	  
+							if(seq[j]==0)
+							{
+								parar=1;
+								break;
+							}
+						 }
+						if(parar==1)
+						{
+							break;
+						}
+	  
+					}
+					//percorrendo todas as colunas
+					for(c=0;c<9;c++)
+					{
+						for(j=0;j<9;j++)
+						{
+							seq[j]=0;
+						}
+						for(l=0;l<9;l++)
+						{
+							seq[sudoku[l][c]-1]++;
+	  
+						}
+						 for(j=0;j<9;j++)
+						 {
+							if(seq[j]==0)
+							{
+								parar=1;
+								break;
+							}
+						 }
+						if(parar==1)
+						{
+							break;
+						}
+	  
+					}
+				}
+				if(parar == 1)
+					System.out.printf("Instancia %d\nNAO\n\n",t);
+				else
+					System.out.printf("Instancia %d\nSIM\n\n",t);
+		}
+    }
+}
