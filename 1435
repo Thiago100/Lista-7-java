@@ -1,0 +1,29 @@
+import java.util.*;
+import java.io.*;
+public class Main{	
+	public static void main (String[] args){
+		PrintStream sa = System.out;
+		Scanner sc=new Scanner(System.in);
+		while(true){
+			int n = sc.nextInt();
+			if(n==0) break;
+			int m[][] = new int[n][n];
+			for(int k=0;k<(n/2)+1;k++){
+				for(int i=k;i<n-k;i++){
+					for(int j=k;j<n-k;j++){
+						m[i][j]++;
+					}
+				}
+			}
+			
+			for(int i=0;i<n;i++){
+				for(int j=0;j<n;j++){
+					if(j==0) sa.printf("%3d",m[i][j]);
+					else sa.printf("%4d",m[i][j]);
+				}
+				sa.println();
+			}
+			sa.println();
+		}
+	}
+}
