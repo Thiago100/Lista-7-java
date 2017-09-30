@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import java.lang.String;
+  
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in); 
+				int x;
+		 x=sc.nextInt();
+		int c[][]=new int[x][x],soma=0,vr=0;
+		for(int i=0;i<x;i++){
+		    for(int j=0;j<x;j++)
+		    	c[i][j]=sc.nextInt();
+		}
+		for(int i=0;i<x;i++){
+		    soma+=c[i][i];
+		}
+		for(int i=0;i<x;i++){
+		    for(int j=0;j<x;j++){
+		        vr+=c[i][j];//linha
+		       // printf("c[%d][%d]\n",i,j);
+		    }
+		   if(vr!=soma){
+		        System.out.printf("-1\n");
+		        return ;
+		        }
+		        vr=0;
+		}
+		vr=0;
+		for(int i=0;i<x;i++){
+		    for(int j=0;j<x;j++){
+		        vr+=c[j][i];
+		    }
+		    if(vr!=soma){
+		        System.out.printf("-1\n");
+		        return ; 
+		        }
+		         vr=0;
+		}
+		vr=0;
+		int l=0,c2=x-1;
+		for(int i=0;i<x;i++){
+		   vr+=c[l][c2];
+		   l++;
+		   c2--;
+
+		}
+		if(vr!=soma){
+		        System.out.printf("-1\n");
+		        return ;
+		        
+		    }
+		System.out.printf("%d\n",soma);
+    }
+}
