@@ -1,0 +1,50 @@
+import java.util.*;
+import java.io.*;
+public class Main{	
+	public static void main (String[] args){
+		PrintStream sa = System.out;
+		Scanner sc=new Scanner(System.in);
+		int n, l, c, a=0;
+	    while (true){
+	    	n = sc.nextInt();
+	    	if(n==0) break;
+	        int m[][] = new int[n][n], valor=1, aux=0, f=2,  x, cont=0, sla=0, ca;
+	
+	        for(l=0;l<n;l++){
+	            for(c=0;c<n;c++){
+	                m[l][c]=valor;
+	                valor*=2;
+	            }
+	            valor=f;
+	            f*=2;
+	        }
+	        a=m[n-1][n-1];
+	        for(cont=0;a>0;cont++){
+	            a/=10;
+	        }
+	        for(l=0;l<n;l++){
+	            for(c=0;c<n-1;c++){
+	                sla=m[l][c];
+	                for(ca=0;sla>0;ca++){
+	                    sla/=10;
+	                }
+	
+	                for(x=0;x<cont-ca;x++){
+	                    sa.printf (" ");
+	                }
+	                sa.printf("%d ", m[l][c]);
+	            }
+	
+	                sla=m[l][c];
+	                for(ca=0;sla>0;ca++){
+	                    sla/=10;
+	                }
+	            for(x=0;x<cont-ca;x++){
+	                sa.printf (" ");
+	            }
+	            sa.printf("%d\n",m[l][c]);
+	        }
+	        sa.printf("\n");
+	    }
+	}
+}
