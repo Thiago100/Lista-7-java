@@ -1,0 +1,22 @@
+import java.util.*;
+import java.io.*;
+public class Main{
+	public static void main (String[] args){
+		Scanner sc = new Scanner (System.in);
+		PrintStream sa = System.out;
+		int  i, j, f=0, l=0, m=0, s=0;
+		String x[];
+		x = new String[5];
+		for(i=0; i<4; i++){
+			x[i] = sc.next();
+		}
+		f = (x[0].charAt(0)-'0')*1000+(x[1].charAt(0)-'0')*100+(x[2].charAt(0)-'0')*10+(x[3].charAt(0)-'0');
+		l = ((((x[0].charAt(x[0].length()-1)))-'0')*1000+(((x[1].charAt(x[1].length()-1)))-'0')*100+(((x[2].charAt(x[2].length()-1)))-'0')*10+((x[3].charAt(x[3].length()-1)))-'0');
+		for(j=1; j<x[0].length()-1; j++){
+			m = (x[0].charAt(j)-'0')*1000+(x[1].charAt(j)-'0')*100+(x[2].charAt(j)-'0')*10+(x[3].charAt(j)-'0');
+			s = (f*m+l)%257;
+			sa.printf("%c", s);
+		}
+		sa.println();
+	}
+}
