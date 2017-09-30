@@ -1,0 +1,26 @@
+import java.util.*;
+import java.io.*;
+public class Main{	
+	public static void main (String[] args){
+		PrintStream sa = System.out;
+		Scanner sc=new Scanner(System.in);
+		int z=0;
+		while(true){
+			int n = sc.nextInt();
+			if(n==0) break;
+			if(z==1) sa.println();
+			String a[] = new String[n];
+			int maior=0;
+			for(int i=0;i<n;i++){
+				a[i] = sc.next();
+				if(a[i].length()>maior) maior = a[i].length();
+			}
+			for(int i=0;i<n;i++){
+				int x = maior-a[i].length();
+				for(int j=0;j<x;j++) sa.printf(" ");
+				sa.println(a[i]);
+			}
+			z=1;
+		}
+	}
+}
