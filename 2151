@@ -1,0 +1,42 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+		PrintStream sa = System.out;
+		Scanner scanner = new Scanner(System.in);
+		int n=scanner.nextInt(), l=0, c=0, a=0, b=0, sl=0, sc=0, cont=0;
+	    for (cont=0;cont<n;cont++){
+	        a=scanner.nextInt();b=scanner.nextInt();sl=scanner.nextInt();sc = scanner.nextInt();
+	        int m[][] = new int[a][b];
+	        for (l=0;l<a;l++){
+	            for (c=0;c<b;c++){
+	                m[l][c] = scanner.nextInt();
+	            }
+	        }
+	        for (l=0;l<a;l++){
+	            for (c=0;c<b;c++){
+	                if (l==sl-1 && c==sc-1) m[l][c]+=10;
+	                else if (l>=sl-2 && l<=sl && c>=sc-2 && c<=sc) m[l][c]+=9;
+	                else if (l>=sl-3 && l<=sl+1 && c>=sc-3 && c<=sc+1) m[l][c]+=8;
+	                else if (l>=sl-4 && l<=sl+2 && c>=sc-4 && c<=sc+2) m[l][c]+=7;
+	                else if (l>=sl-5 && l<=sl+3 && c>=sc-5 && c<=sc+3) m[l][c]+=6;
+	                else if (l>=sl-6 && l<=sl+4 && c>=sc-6 && c<=sc+4) m[l][c]+=5;
+	                else if (l>=sl-7 && l<=sl+5 && c>=sc-7 && c<=sc+5) m[l][c]+=4;
+	                else if (l>=sl-8 && l<=sl+6 && c>=sc-8 && c<=sc+6) m[l][c]+=3;
+	                else if (l>=sl-9 && l<=sl+7 && c>=sc-9 && c<=sc+7) m[l][c]+=2;
+	                else m[l][c]+=1;
+	            }
+	        }
+	        sa.printf ("Parede %d:\n",cont+1);	
+	        for (l=0;l<a;l++){
+	            for (c=0;c<b-1;c++){
+	                sa.printf ("%d ",m[l][c]);
+	            }
+	            sa.printf ("%d\n",m[l][b-1]);
+	        }
+	
+	    }
+	
+	
+	}
+}
