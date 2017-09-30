@@ -1,0 +1,20 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+		PrintStream sa = System.out;
+		Scanner sc = new Scanner(System.in);
+		double x,soma=0,media;
+		int n=sc.nextInt();
+		String a=sc.next();
+		for(int i=0;i<12;i++){
+			for(int j=0;j<12;j++){
+				x = sc.nextDouble();
+				if(n==i) soma+=x;
+			}
+		}
+		media = soma/12.0;
+		if(a.charAt(0)=='M') sa.printf("%.1f\n",media);
+		else sa.printf("%.1f\n",soma); 
+	}
+}
