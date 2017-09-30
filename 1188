@@ -1,0 +1,25 @@
+import java.util.*;
+import java.io.*;
+public class Main{	
+	public static void main (String[] args){
+		PrintStream sa = System.out;
+		Scanner sc=new Scanner(System.in);
+		String a = sc.next();
+		double s=0,y;
+		int x=6,k=5;
+		for(int i=0;i<12;i++){
+			for(int j=0;j<12;j++){
+				y = sc.nextDouble();
+				if(j>=k && j<=x && i>=7){
+					s+=y;
+				}
+			}
+			if(i>6){
+				x++;
+				k--;
+			}
+		}
+		if(a.equals("M")) sa.printf("%.1f\n",s/30.0);
+		else sa.printf("%.1f\n",s);
+	}
+}
