@@ -1,0 +1,49 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+		PrintStream sa = System.out;
+		Scanner sc = new Scanner(System.in);
+		 int lf = sc.nextInt(), cf = sc.nextInt(), pl=0, pc=0, s = sc.nextInt(), p, d, e, pd = 0, pe = 0, pf;
+        while (lf!=0 && cf!=0 && s!=0){
+            pf = 1;
+            s--;
+            int m[][] = new int [lf][cf], l, c;
+
+            for (l=0;l<lf;l++){
+                for (c=0;c<cf;c++){
+                    m[l][c] = sc.nextInt();
+                }
+            }
+
+            for (l=0;l<lf;l++){
+                for(d=s;d<cf;d++){
+                    if (m[l][d]!=0){
+                            pd=d;
+                            break;
+                        }
+                }
+                for(e=s;e>=0;e--){
+                    if (m[l][e]!=0){
+                        pe=e;
+                        break;
+                    }
+                }
+                s+=m[l][pe]-m[l][pd];
+                if (s<=pe){
+                    sa.printf ("BOOM %d %d\n",l+1,pe+1);
+                    pf = 0;
+                    break;
+                }
+                if (s>=pd){
+                    sa.printf ("BOOM %d %d\n",l+1,pd+1);
+                    pf = 0;
+                    break;
+                }
+            }
+            if (pf==1)sa.printf ("OUT %d\n",s+1);
+            lf = sc.nextInt();cf = sc.nextInt();s = sc.nextInt();
+        }
+
+    }
+}
